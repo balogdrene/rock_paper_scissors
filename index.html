@@ -6,17 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="scripts.js" defer></script> -->
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <button onclick="playRound('rock')" id="btn-rock">Rock</button>
-    <button onclick="playRound('paper')" id="btn-paper">Paper</button>
-    <button onclick="playRound('scissors')" id="btn-scisssors">Scissors</button>
+    <div id="container">
+        <div id="score">
+            <h1 id="h1">0 - 0</h1>
+        </div>
+        <div id="buttons">
+            <button onclick="game('rock')" id="btn-rock">Rock</button>
+            <button onclick="game('paper')" id="btn-paper">Paper</button>
+            <button onclick="game('scissors')" id="btn-scisssors">Scissors</button>
+        </div>
+    </div>
 
     <script>
+        const container = document.querySelector('#container')
+        const score = document.querySelector('#h1')
+
+
+
+
+
+        // score.textContent = playerScore + " - " + computerScore
+
+        // container.appendChild(score)
+
+
+
+
         let playerScore = 0
         let computerScore = 0
+
+
+
 
         function playRound(playerPick) {
 
@@ -53,6 +78,11 @@
 
 
         }
+        function game(playerPick) {
+            playRound(playerPick)
+            score.innerHTML = playerScore + " - " + computerScore
+        }
+
 
     </script>
 
