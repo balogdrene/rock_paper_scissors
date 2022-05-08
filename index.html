@@ -5,11 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="game.js" defer></script>
+    <!-- <script src="scripts.js" defer></script> -->
     <title>Document</title>
 </head>
 
 <body>
+    <button onclick="playRound('rock')" id="btn-rock">Rock</button>
+    <button onclick="playRound('paper')" id="btn-paper">Paper</button>
+    <button onclick="playRound('scissors')" id="btn-scisssors">Scissors</button>
+
+    <script>
+        let playerScore = 0
+        let computerScore = 0
+
+        function playRound(playerPick) {
+
+            let computerPick = Math.floor(Math.random() * 3)
+            switch (computerPick) {
+                case 0: computerPick = 'rock'
+                    break;
+                case 1: computerPick = 'paper'
+                    break;
+                case 2: computerPick = 'scissors'
+                    break;
+            }
+            if (playerPick === computerPick) {
+                console.log("TIE")
+                console.log("Your pick: " + playerPick + " PC pick: " + computerPick)
+                console.log(playerScore + " - " + computerScore)
+                return
+            } else if
+                ((playerPick === "rock" && computerPick === "scissors") ||
+                (playerPick === "paper" && computerPick === "rock") ||
+                (playerPick === "rock" && computerPick === "scissors")) {
+                playerScore++
+                console.log("WINNER")
+                console.log("Your pick: " + playerPick + " PC pick: " + computerPick)
+                console.log(playerScore + " - " + computerScore)
+                return
+            } else {
+                computerScore++
+                console.log("LOSER")
+                console.log("Your pick: " + playerPick + " PC pick: " + computerPick)
+                console.log(playerScore + " - " + computerScore)
+                return
+            }
+
+
+        }
+
+    </script>
 
 </body>
 
